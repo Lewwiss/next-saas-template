@@ -14,34 +14,7 @@ const Hero = () => {
 
   const [index, setIndex] = useState(0);
   const [typing, setTyping] = useState(true);
-
-  useEffect(() => {
-    let timeout: NodeJS.Timeout;
-
-    if (typing) {
-      // Typing effect
-      if (word.length < words[index].length) {
-        timeout = setTimeout(() => {
-          setWord((prev) => prev + words[index][prev.length]);
-        }, 150);
-      } else {
-        setTimeout(() => setTyping(false), 1000); // Pause before deleting
-      }
-    } else {
-      // Deleting effect
-      if (word.length > 0) {
-        timeout = setTimeout(() => {
-          setWord((prev) => prev.slice(0, -1));
-        }, 100);
-      } else {
-        setTyping(true);
-        setIndex((prev) => (prev + 1) % words.length); // Move to next word
-      }
-    }
-
-    return () => clearTimeout(timeout);
-  }, [word, typing, index]);
-
+  
   return (
     <section className="bg-white dark:bg-slate-950 relative pt-40 sm:pt-48 pb-28 px-10 overflow-hidden flex flex-col items-center justify-center">
       <div className="relative w-full mx-auto max-w-7xl flex flex-col items-start justify-center gap-6">

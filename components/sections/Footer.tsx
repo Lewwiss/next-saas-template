@@ -1,8 +1,5 @@
 import { Button } from "../ui/button";
 import Link from "next/link";
-import Logo from "../icons/Logo";
-import Discord from "../icons/Discord";
-import X from "../icons/X";
 
 const Footer = () => {
   return (
@@ -10,23 +7,8 @@ const Footer = () => {
       <div className="mx-auto max-w-7xl grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-10">
         <div className="col-span-2 sm:col-span-3 xl:col-span-2 flex flex-col gap-6">
           <Link href="/" className="flex flex-row items-center gap-3">
-            <Logo className="size-5" />
             <h2 className="font-title text-xl font-bold leading-relaxed text-slate-800 dark:text-white pt-1">Webhook Forms</h2>
           </Link>
-          <div className="flex flex-row flex-wrap gap-3">
-            <a href="https://discord.gg/FZTVYjMTWq" target="_blank">
-              <Button className="bg-[#5865F2] hover:bg-[#6974f3] text-white" size="sm">
-                  <Discord className="size-5 text-inherit" />
-                  Join Our Discord
-              </Button>
-            </a>
-            <a href="https://x.com/lewwisscom" target="_blank">
-              <Button className="bg-black hover:bg-neutral-950 text-white" size="sm">
-                  Follow On
-                  <X className="!size-3 text-inherit" />
-              </Button>
-            </a>
-          </div>
           <p className="text-sm text-slate-500 dark:text-slate-300">
             © {new Date().getFullYear()} Webhook Forms. All rights reserved.
           </p>

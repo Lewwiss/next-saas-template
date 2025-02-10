@@ -17,7 +17,7 @@ const Page = () => {
     {/* <FAQ />
     <CTA /> */}
     {/* <Footer /> */}
-    <div className="bg-red-100 h-[200vh]" />
+    <div className="h-[200vh]" />
   </div>);
 }
 

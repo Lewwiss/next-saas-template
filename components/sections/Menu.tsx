@@ -9,11 +9,17 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Bars3Icon, HomeIcon, RocketLaunchIcon, TagIcon } from "@heroicons/react/20/solid";
+import {
+  Bars3Icon,
+  HomeIcon,
+  RocketLaunchIcon,
+  TagIcon,
+} from "@heroicons/react/20/solid";
 import { useSession } from "next-auth/react";
 import ButtonSignOut from "../ui/button-sign-out";
 import ButtonSignInGoogle from "../ui/button-sign-in-google";
 import Link from "next/link";
+import Logo from "../ui/logo";
 
 const Menu = () => {
   const { status } = useSession();
@@ -22,80 +28,38 @@ const Menu = () => {
     <nav className="lg:hidden ml-auto">
       <Sheet>
         <SheetTrigger asChild>
-          <Button variant="outline" size="icon">
-            <Bars3Icon className="size-4" />
-          </Button>
+          <Bars3Icon className="size-5" />
         </SheetTrigger>
         <SheetContent>
           <SheetHeader>
-            <div className="flex flex-row items-center gap-2">
-              <SheetTitle className="text-base font-bold leading-relaxed w-full">
-                <Link href="/" className="w-full flex flex-row items-center justify-center gap-3">
-                  <h2 className="font-title text-lg font-bold leading-relaxed text-slate-800 dark:text-white pt-1">Webhook Forms</h2>
-                </Link>
-              </SheetTitle>
-              <SheetDescription className="hidden">
-                The quickest way to collect your user feedback, sending responses to your favourite apps.
-              </SheetDescription>
-            </div>
-            <ul className="py-6 flex flex-col gap-3">
-              <li>
-                <Link href="/pricing">
-                  <Button variant="ghost" className="w-full">
-                    Pricing
-                    <span className="hidden text-white py-0.5 px-1.5 rounded-lg bg-neutral-600 text-xs font-bold flex flex-row gap-1 items-center">
-                      <TagIcon className="size-3 inline" />
-                      40% Discount
-                    </span>
-                  </Button>
-                </Link>
-              </li>
-              <li>
-                <Link href="/#faq">
-                  <Button variant="ghost" className="w-full">FAQ</Button>
-                </Link>
-              </li>
-              <li className="mb-6">
-                <Link href="/guides">
-                  <Button variant="ghost" className="w-full">
-                    Guides
-                    <span className="text-white py-0.5 px-1.5 rounded-lg bg-neutral-600 text-xs font-bold flex flex-row gap-1 items-center">
-                      <TagIcon className="hidden size-3 inline" />
-                      New
-                    </span>
-                  </Button>
-                </Link>
-              </li>
-              {
-                status === "authenticated" ?
-                <>
-                  <li>
-                    <Link href="/dashboard">
-                      <Button variant="outline" className="w-full">
-                        <HomeIcon className="size-4" />
-                        Go To Dashboard
-                      </Button>
-                    </Link>
-                  </li>
-                  <li>
-                    <ButtonSignOut className="w-full" />
-                  </li>
-                </> :
-                <>
-                  <li>
-                    <ButtonSignInGoogle className="w-full" />
-                  </li>
-                  <li>
-                    <Link href="/auth/signin">
-                      <Button className="w-full">
-                        <RocketLaunchIcon className="size-5" />
-                        Get Started Now
-                      </Button>
-                    </Link>
-                  </li>
-                </>
-              }
+            <SheetTitle>
+              <Link
+                href="/"
+                className="flex flex-row items-center justify-center gap-2"
+              >
+                <Logo className="size-5" />
+                <h2 className="text-lg font-bold leading-relaxed">template</h2>
+              </Link>
+            </SheetTitle>
+            <SheetDescription className="hidden">
+              The quickest way to collect your user feedback, sending responses
+              to your favourite apps.
+            </SheetDescription>
+            <ul className="py-3 flex flex-col items-center gap-3">
+              {["Components", "Docs"].map((item, index) => (
+                <li key={index}>
+                  <Link
+                    href={item}
+                    className="transition-colors hover:text-foreground/80 text-foreground/80"
+                  >
+                    {item}
+                  </Link>
+                </li>
+              ))}
             </ul>
+            <Link href="/auth/signin">
+              <Button className="w-full">Get Started Now</Button>
+            </Link>
           </SheetHeader>
         </SheetContent>
       </Sheet>

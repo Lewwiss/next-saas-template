@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
-@import url('https://api.fontshare.com/v2/css?f[]=sentient@400,401,500,501,700,701&display=swap');
-@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,10 +8,6 @@ html, body {
   font-family: Geist, Helvetica, sans-serif;
   background-color: transparent;
   scroll-behavior: smooth;
-}
-
-h1, h2 {
-  font-family: Geist, sans-serif;
 }
 
 @layer base {
@@ -79,59 +73,4 @@ h1, h2 {
   body {
     @apply bg-background text-foreground;
   }
-}
-
-@keyframes popup {
-  0% {
-    transform: translateY(100%) scale(0.8);
-    opacity: 0;
-  }
-  20% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-  60% {
-    transform: translateY(0) scale(0.8);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(-100%) scale(0.8);
-    opacity: 0;
-  }
-}
-
-.custom-popup {
-  opacity: 0;
-  transform: translateY(100%);
-  animation: popup 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  animation-fill-mode: forwards;
-}
-
-
-@keyframes spin-reverse {
-  to {
-      transform: rotate(-1turn)
-  }
-}
-
-.animate-spin-reverse-slower {
-  animation: spin-reverse 6s linear infinite
-}
-
-.animate-spin-slow {
-  animation: spin 4s linear infinite
-}
-
-@keyframes spin {
-  to {
-      transform: rotate(1turn)
-  }
-}
-
-.animate-spin-slower {
-  animation: spin 6s linear infinite
 }
