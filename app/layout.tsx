@@ -9,7 +9,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body className="dark bg-background">
+      <body className="bg-background">
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
