@@ -2,7 +2,7 @@ import { createTransport } from "nodemailer";
 import type { SendVerificationRequestParams } from "next-auth/providers/email";
 
 export const sendVerificationRequest = async (
-  params: SendVerificationRequestParams
+  params: SendVerificationRequestParams,
 ) => {
   const { identifier, url, provider } = params;
   const { host } = new URL(url);

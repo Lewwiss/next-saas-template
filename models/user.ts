@@ -30,12 +30,12 @@ const userSchema = new mongoose.Schema(
     tokens: {
       type: Number,
       default: 0,
-    }
+    },
   },
   {
     timestamps: true,
     toJSON: { virtuals: true },
-  }
+  },
 );
 
 export default mongoose.models.User || mongoose.model("User", userSchema);

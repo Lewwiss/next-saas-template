@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 import Logo from "../ui/logo";
 
-const Hero = () => {  
+const Hero = () => {
   return (
     <section className="py-24 px-10">
       <div className="w-full mx-auto max-w-6xl flex flex-col items-center justify-center text-center gap-6">

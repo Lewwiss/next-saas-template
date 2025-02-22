@@ -17,12 +17,9 @@ const ButtonBillingArea = ({ className }: Props) => {
     setLoading(true);
 
     try {
-      const { data } = await apiClient.post(
-        "/stripe/create-portal",
-        {
-          returnUrl: window.location.href,
-        }
-      );
+      const { data } = await apiClient.post("/stripe/create-portal", {
+        returnUrl: window.location.href,
+      });
 
       window.location.href = data.url;
     } catch (e) {

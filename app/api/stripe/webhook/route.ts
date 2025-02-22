@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
 
   const body = await req.text();
 
-  const signature = (await headers()).get("stripe-signature") || '';
+  const signature = (await headers()).get("stripe-signature") || "";
 
   let eventType;
   let event;
@@ -33,17 +33,20 @@ export async function POST(req: NextRequest) {
   try {
     switch (eventType) {
       case "checkout.session.completed": {
-        const stripeObject: Stripe.Checkout.Session = event.data.object as Stripe.Checkout.Session;
+        const stripeObject: Stripe.Checkout.Session = event.data
+          .object as Stripe.Checkout.Session;
         const session = await findCheckoutSession(stripeObject.id);
         const customerId = session?.customer;
         const priceId = session?.line_items?.data[0]?.price?.id;
         const userId = stripeObject.client_reference_id;
-        const plan = priceId === process.env.NEXT_PUBLIC_STRIPE_MONTHLY_PRICE_ID || priceId === process.env.NEXT_PUBLIC_STRIPE_YEARLY_PRICE_ID;
+        const plan =
+          priceId === process.env.NEXT_PUBLIC_STRIPE_MONTHLY_PRICE_ID ||
+          priceId === process.env.NEXT_PUBLIC_STRIPE_YEARLY_PRICE_ID;
 
         if (!plan) break;
 
         const customer = (await stripe.customers.retrieve(
-          customerId as string
+          customerId as string,
         )) as Stripe.Customer;
 
         let user;
@@ -81,20 +84,22 @@ export async function POST(req: NextRequest) {
       }
 
       case "customer.subscription.deleted": {
-        const stripeObject: Stripe.Subscription = event.data.object as Stripe.Subscription;
+        const stripeObject: Stripe.Subscription = event.data
+          .object as Stripe.Subscription;
         const subscription = await stripe.subscriptions.retrieve(
-          stripeObject.id
+          stripeObject.id,
         );
         const user = await User.findOne({ customerId: subscription.customer });
         user.priceIds = user.priceIds.filter(
-          (priceId: string) => priceId !== subscription.items.data[0].price.id
+          (priceId: string) => priceId !== subscription.items.data[0].price.id,
         );
         await user.save();
         break;
       }
 
       case "invoice.paid": {
-        const stripeObject: Stripe.Invoice = event.data.object as Stripe.Invoice;
+        const stripeObject: Stripe.Invoice = event.data
+          .object as Stripe.Invoice;
         const priceId = stripeObject.lines.data[0].price?.id;
         const customerId = stripeObject.customer;
         const user = await User.findOne({ customerId: customerId?.toString() });

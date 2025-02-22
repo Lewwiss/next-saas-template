@@ -16,9 +16,7 @@ const Page = () => {
           <p className="max-w-sm flex flex-row gap-2 items-center">
             Last Updated: December 10, 2024
           </p>
-          <p
-            className="text-foreground/50 leading-relaxed whitespace-pre-wrap"
-          >
+          <p className="text-foreground/50 leading-relaxed whitespace-pre-wrap">
             {`Welcome to [NAME]. Your privacy is important to us. This Privacy Policy explains the types of information we collect, how it is used, and your rights regarding your data when you use our website and services.
 
 1. Personal Data - (Information We Collect) We collect the following personal information when you use our services name, email, payment information and webhooks. This data is essential for providing our services and processing your orders.

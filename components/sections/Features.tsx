@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  BoltIcon,
-  StarIcon,
-  UserIcon,
-} from "@heroicons/react/20/solid";
+import { BoltIcon, StarIcon, UserIcon } from "@heroicons/react/20/solid";
 import { useState } from "react";
 
 const Features = () => {
@@ -22,11 +18,15 @@ const Features = () => {
       </div>
 
       <div className="w-full mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-5 items-center gap-10">
-
         <div className="col-span-2 w-full flex flex-col gap-5">
           {/* Feature 1 */}
-          <button onClick={() => setSelected(0)} className={`${selected === 0 ? 'bg-input/50' : ''} duration-200 border border-input flex flex-row gap-4 p-6 rounded-xl`}>
-            <div className={`${selected === 0 ? 'bg-primary text-primary-foreground' : ''} duration-200 shrink-0 size-8 rounded-full border border-input flex items-center justify-center`}>
+          <button
+            onClick={() => setSelected(0)}
+            className={`${selected === 0 ? "bg-input/50" : ""} duration-200 border border-input flex flex-row gap-4 p-6 rounded-xl`}
+          >
+            <div
+              className={`${selected === 0 ? "bg-primary text-primary-foreground" : ""} duration-200 shrink-0 size-8 rounded-full border border-input flex items-center justify-center`}
+            >
               <UserIcon className="size-4" />
             </div>
             <div className="flex flex-col items-start text-left gap-3">
@@ -38,8 +38,13 @@ const Features = () => {
           </button>
 
           {/* Feature 2 */}
-          <button onClick={() => setSelected(1)} className={`${selected === 1 ? 'bg-input/50' : ''} duration-200 border border-input flex flex-row gap-4 p-6 rounded-xl`}>
-          <div className={`${selected === 1 ? 'bg-primary text-primary-foreground' : ''} duration-200 shrink-0 size-8 rounded-full border border-input flex items-center justify-center`}>
+          <button
+            onClick={() => setSelected(1)}
+            className={`${selected === 1 ? "bg-input/50" : ""} duration-200 border border-input flex flex-row gap-4 p-6 rounded-xl`}
+          >
+            <div
+              className={`${selected === 1 ? "bg-primary text-primary-foreground" : ""} duration-200 shrink-0 size-8 rounded-full border border-input flex items-center justify-center`}
+            >
               <BoltIcon className="size-4" />
             </div>
             <div className="flex flex-col items-start text-left gap-3">
@@ -51,8 +56,13 @@ const Features = () => {
           </button>
 
           {/* Feature 3 */}
-          <button onClick={() => setSelected(2)} className={`${selected === 2 ? 'bg-input/50' : ''} duration-200 border border-input flex flex-row gap-4 p-6 rounded-xl`}>
-          <div className={`${selected === 2 ? 'bg-primary text-primary-foreground' : ''} duration-200 shrink-0 size-8 rounded-full border border-input flex items-center justify-center`}>
+          <button
+            onClick={() => setSelected(2)}
+            className={`${selected === 2 ? "bg-input/50" : ""} duration-200 border border-input flex flex-row gap-4 p-6 rounded-xl`}
+          >
+            <div
+              className={`${selected === 2 ? "bg-primary text-primary-foreground" : ""} duration-200 shrink-0 size-8 rounded-full border border-input flex items-center justify-center`}
+            >
               <StarIcon className="size-4" />
             </div>
             <div className="flex flex-col items-start text-left gap-3">

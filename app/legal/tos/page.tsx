@@ -16,9 +16,7 @@ const Page = () => {
           <p className="max-w-sm flex flex-row gap-2 items-center">
             Last Updated: December 10, 2024
           </p>
-          <p
-            className="text-foreground/50 leading-relaxed whitespace-pre-wrap"
-          >
+          <p className="text-foreground/50 leading-relaxed whitespace-pre-wrap">
             {`Welcome to [NAME]. By accessing or using our website and services, you agree to be bound by the following terms and conditions. Please read them carefully.
 
 1. Services Provided - [NAME] provides a JavaScript form builder to assist entrepreneurs in collecting feedback for their products. Our services include access to downloadable code packages upon purchase.

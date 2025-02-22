@@ -12,11 +12,13 @@ export default async function LayoutPrivate({
   const session = await getServerSession(authOptions);
 
   if (!session) {
-    redirect('/auth/signin');
+    redirect("/auth/signin");
   }
 
-  return <div>
-    {children}
-    <Toaster />
-  </div>;
+  return (
+    <div>
+      {children}
+      <Toaster />
+    </div>
+  );
 }

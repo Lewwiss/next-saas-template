@@ -19,27 +19,19 @@ const FAQ = () => {
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="question-1">
               <AccordionTrigger>Question 1</AccordionTrigger>
-              <AccordionContent>
-                Question 1 Answer
-              </AccordionContent>
+              <AccordionContent>Question 1 Answer</AccordionContent>
             </AccordionItem>
             <AccordionItem value="question-2">
               <AccordionTrigger>Question 2</AccordionTrigger>
-              <AccordionContent>
-                Question 2 Answer
-              </AccordionContent>
+              <AccordionContent>Question 2 Answer</AccordionContent>
             </AccordionItem>
             <AccordionItem value="question-3">
               <AccordionTrigger>Question 3</AccordionTrigger>
-              <AccordionContent>
-                Question 3 Answer
-              </AccordionContent>
+              <AccordionContent>Question 3 Answer</AccordionContent>
             </AccordionItem>
             <AccordionItem value="question-4">
               <AccordionTrigger>Question 4</AccordionTrigger>
-              <AccordionContent>
-                Question 4 Answer
-              </AccordionContent>
+              <AccordionContent>Question 4 Answer</AccordionContent>
             </AccordionItem>
           </Accordion>
         </div>

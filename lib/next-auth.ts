@@ -5,7 +5,7 @@ import DiscordProvider from "next-auth/providers/discord";
 import EmailProvider from "next-auth/providers/email";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import connectMongo from "./mongo";
-import { sendVerificationRequest } from './email';
+import { sendVerificationRequest } from "./email";
 
 interface NextAuthOptionsExtended extends NextAuthOptions {
   adapter: any; // eslint-disable-line @typescript-eslint/no-explicit-any
@@ -15,8 +15,8 @@ export const authOptions: NextAuthOptionsExtended = {
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_ID || '',
-      clientSecret: process.env.GOOGLE_SECRET || '',
+      clientId: process.env.GOOGLE_ID || "",
+      clientSecret: process.env.GOOGLE_SECRET || "",
       async profile(profile) {
         return {
           id: profile.sub,
@@ -28,8 +28,8 @@ export const authOptions: NextAuthOptionsExtended = {
       },
     }),
     DiscordProvider({
-      clientId: process.env.DISCORD_ID || '',
-      clientSecret: process.env.DISCORD_SECRET || '',
+      clientId: process.env.DISCORD_ID || "",
+      clientSecret: process.env.DISCORD_SECRET || "",
     }),
     ...(connectMongo
       ? [
@@ -42,17 +42,21 @@ export const authOptions: NextAuthOptionsExtended = {
                 pass: process.env.RESEND_API_KEY,
               },
             },
-            from: 'mail@webhookforms.com',
+            from: "mail@webhookforms.com",
             sendVerificationRequest,
           }),
         ]
       : []),
   ],
-  ...(connectMongo && { adapter: MongoDBAdapter(connectMongo, { databaseName: process.env.MONGODB_DB }) }),
+  ...(connectMongo && {
+    adapter: MongoDBAdapter(connectMongo, {
+      databaseName: process.env.MONGODB_DB,
+    }),
+  }),
   callbacks: {
     session: async ({ session, token }) => {
       if (session?.user) {
-        session.user.id = token.sub || '';
+        session.user.id = token.sub || "";
       }
       return session;
     },
@@ -64,7 +68,7 @@ export const authOptions: NextAuthOptionsExtended = {
     signIn: "/auth/signin",
     error: "/auth/error",
     verifyRequest: "/auth/verify",
-  }
+  },
 };
 
 export default NextAuth(authOptions);

@@ -14,13 +14,11 @@ const links = [
   { href: "/pricing", text: "Pricing" },
 ];
 
-const Navigation = ({ variant }: { variant?: 'dashboard' }) => {
-  if (variant === 'dashboard') {
+const Navigation = ({ variant }: { variant?: "dashboard" }) => {
+  if (variant === "dashboard") {
     return (
       <div className="px-10">
-        <nav
-          className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-3 py-6"
-        >
+        <nav className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-3 py-6">
           <div className="col-span-1 flex flex-row items-center gap-6">
             <Link href="/" className="flex flex-row items-center gap-2">
               <Logo className="size-4" />
@@ -48,9 +46,7 @@ const Navigation = ({ variant }: { variant?: 'dashboard' }) => {
 
   return (
     <div className="px-10">
-      <nav
-        className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-3 py-6"
-      >
+      <nav className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-3 py-6">
         <div className="col-span-1 flex flex-row items-center gap-6">
           <Link href="/" className="flex flex-row items-center gap-2">
             <Logo className="size-4" />
@@ -61,21 +57,20 @@ const Navigation = ({ variant }: { variant?: 'dashboard' }) => {
           </div>
         </div>
         <ul className="col-span-2 hidden md:flex flex-row gap-6 items-center justify-end">
-          {
-            links.map((item, index) => (
-              <li key={index}>
-                <Link href={item.href} className="text-sm transition-colors hover:text-foreground/80 text-foreground">
-                  {item.text}
-                </Link>
-              </li>
-            ))
-          }
+          {links.map((item, index) => (
+            <li key={index}>
+              <Link
+                href={item.href}
+                className="text-sm transition-colors hover:text-foreground/80 text-foreground"
+              >
+                {item.text}
+              </Link>
+            </li>
+          ))}
           <li className="flex flex-row gap-3">
             <ButtonDarkMode />
             <Link href="/auth/signin">
-              <Button>
-                Get Started Now
-              </Button>
+              <Button>Get Started Now</Button>
             </Link>
           </li>
         </ul>

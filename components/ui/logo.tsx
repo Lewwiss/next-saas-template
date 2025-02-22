@@ -5,9 +5,7 @@ interface Props {
 }
 
 const Logo = ({ className }: Props) => {
-  return (
-    <BoltIcon className={className} />
-  );
+  return <BoltIcon className={className} />;
 };
 
 export default Logo;

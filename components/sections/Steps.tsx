@@ -14,7 +14,6 @@ const Steps = () => {
         </p>
       </div>
       <div className="w-full mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-3 gap-10">
-        
         {/* Step 1 */}
         <div className="border border-input flex flex-col gap-4 p-6 rounded-xl">
           <div className="flex flex-row items-center gap-4">
@@ -53,7 +52,6 @@ const Steps = () => {
             This is a description of the step and what it does for the user.
           </p>
         </div>
-
       </div>
       <div className="mx-auto max-w-6xl flex flex-row flex-wrap items-center justify-center gap-3">
         <Link href="/auth/signin">

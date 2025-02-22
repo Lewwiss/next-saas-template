@@ -10,9 +10,7 @@ export default function RootLayout({
     <html lang="en">
       <head />
       <body className="dark bg-background">
-        <ClientLayout>
-          {children}
-        </ClientLayout>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

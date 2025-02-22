@@ -14,11 +14,7 @@ const ButtonSignInGoogle = (props: ButtonProps) => {
   };
 
   return (
-    <Button
-      {...props}
-      onClick={() => handleClick()}
-      loading={loading}
-    >
+    <Button {...props} onClick={() => handleClick()} loading={loading}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="800px"

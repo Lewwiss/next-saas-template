@@ -1,7 +1,4 @@
-import {
-  CheckIcon,
-  XMarkIcon,
-} from "@heroicons/react/20/solid";
+import { CheckIcon, XMarkIcon } from "@heroicons/react/20/solid";
 
 const Compare = () => {
   return (
@@ -15,7 +12,6 @@ const Compare = () => {
         </p>
       </div>
       <div className="mx-auto max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-10">
-        
         <ul className="flex flex-col gap-5">
           {Array.from({ length: 3 }, (_, i) => i + 1).map((index) => (
             <li
@@ -53,7 +49,6 @@ const Compare = () => {
             </li>
           ))}
         </ul>
-
       </div>
     </section>
   );

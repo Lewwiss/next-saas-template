@@ -11,10 +11,8 @@ export default async function LayoutPrivate({
   const session = await getServerSession(authOptions);
 
   if (session) {
-    redirect('/dashboard');
+    redirect("/dashboard");
   }
 
-  return <div>
-    {children}
-  </div>;
+  return <div>{children}</div>;
 }

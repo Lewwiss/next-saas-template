@@ -5,20 +5,22 @@ import Footer from "@/components/sections/Footer";
 import Hero from "@/components/sections/Hero";
 import Navigation from "@/components/sections/Navigation";
 import Steps from "@/components/sections/Steps";
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {};
 
 const Page = () => {
-  return (<div>
-    <Navigation />
-    <Hero />
-    <Steps />
-    <Compare />
-    <Features />
-    <CTA />
-    <Footer />
-  </div>);
-}
+  return (
+    <div>
+      <Navigation />
+      <Hero />
+      <Steps />
+      <Compare />
+      <Features />
+      <CTA />
+      <Footer />
+    </div>
+  );
+};
 
 export default Page;

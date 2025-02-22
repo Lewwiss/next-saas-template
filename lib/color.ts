@@ -1,8 +1,6 @@
-export const hexToHSL = (
-  hex: string
-): string | null => {
+export const hexToHSL = (hex: string): string | null => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  if (!result) return '0 0% 0%';
+  if (!result) return "0 0% 0%";
 
   const r = parseInt(result[1], 16) / 255;
   const g = parseInt(result[2], 16) / 255;

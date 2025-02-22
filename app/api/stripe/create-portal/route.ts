@@ -23,14 +23,14 @@ export async function POST(req: NextRequest) {
           {
             error: "You don't have a billing account yet",
           },
-          { status: 400 }
+          { status: 400 },
         );
       }
 
       if (!body.returnUrl) {
         return NextResponse.json(
           { error: "Return URL is required" },
-          { status: 400 }
+          { status: 400 },
         );
       }
 
