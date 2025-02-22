@@ -15,7 +15,7 @@ Minimal & Scalable structure
 Clone the repository and install dependencies:
 
 ### Clone the repo
-git clone https://github.com/lewwiss/nextjs-saas-template.git
+git clone https://github.com/lewwiss/next-saas-template.git
 cd saas-template
 
 ### Install dependencies
