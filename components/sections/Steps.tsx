@@ -56,7 +56,7 @@ const Steps = () => {
       <div className="mx-auto max-w-6xl flex flex-row flex-wrap items-center justify-center gap-3">
         <Link href="/auth/signin">
           <Button size="lg" className="text-base">
-            Get Started For Free
+            Get Started Now
           </Button>
         </Link>
       </div>
