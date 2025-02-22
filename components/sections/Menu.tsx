@@ -11,6 +11,9 @@ import {
 import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 import Logo from "../ui/logo";
+import ButtonSignOut from "../ui/button-sign-out";
+import ButtonAccount from "../ui/button-account";
+import ButtonDarkMode from "../ui/button-dark-mode";
 
 const links = [
   { href: "/components", text: "Components" },
@@ -18,7 +21,39 @@ const links = [
   { href: "/pricing", text: "Pricing" },
 ];
 
-const Menu = () => {
+const Menu = ({ variant }: { variant?: "dashboard" }) => {
+  if (variant === "dashboard") {
+    return (
+      <nav>
+        <Sheet>
+          <SheetTrigger asChild>
+            <MenuIcon className="size-4 opacity-70 hover:opacity-100 duration-200 cursor-pointer" />
+          </SheetTrigger>
+          <SheetContent>
+            <SheetHeader>
+              <SheetTitle>
+                <Link
+                  href="/"
+                  className="flex flex-row items-center justify-center gap-2"
+                >
+                  <Logo className="size-4" />
+                  <h2 className="text-lg font-bold leading-relaxed">
+                    Template
+                  </h2>
+                </Link>
+              </SheetTitle>
+              <div className="pt-3 flex flex-col gap-3">
+                <ButtonAccount />
+                <ButtonSignOut />
+                <ButtonDarkMode className="w-full" />
+              </div>
+            </SheetHeader>
+          </SheetContent>
+        </Sheet>
+      </nav>
+    );
+  }
+
   return (
     <nav>
       <Sheet>
@@ -48,9 +83,12 @@ const Menu = () => {
                 </li>
               ))}
             </ul>
-            <Link href="/auth/signin">
-              <Button className="w-full">Get Started Now</Button>
-            </Link>
+            <div className="flex flex-col gap-3">
+              <Link href="/auth/signin">
+                <Button className="w-full">Get Started Now</Button>
+              </Link>
+              <ButtonDarkMode className="w-full" />
+            </div>
           </SheetHeader>
         </SheetContent>
       </Sheet>

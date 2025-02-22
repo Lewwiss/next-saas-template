@@ -12,11 +12,6 @@ const ButtonDarkMode = ({ className }: Props) => {
         document.body.classList.toggle("dark");
         const dark = document.body.classList.contains("dark");
         localStorage.setItem("dark", dark ? "true" : "false");
-        if (dark) {
-            document.documentElement.classList.add("bg-slate-950");
-        } else {
-            document.documentElement.classList.remove("bg-slate-950");
-        }
     };
 
     return (

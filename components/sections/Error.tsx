@@ -23,7 +23,7 @@ const Error = () => {
           <ButtonSignInDiscord className="w-full" />
         </div>
         <span className="text-foreground text-center text-sm">
-          Need help? Join our support server
+          Need help? Get in contact with us
         </span>
       </div>
     </div>

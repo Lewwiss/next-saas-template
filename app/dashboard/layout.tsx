@@ -15,7 +15,7 @@ export default async function LayoutPrivate({
     redirect('/auth/signin');
   }
 
-  return <div className="min-h-screen bg-white dark:bg-slate-950">
+  return <div>
     {children}
     <Toaster />
   </div>;

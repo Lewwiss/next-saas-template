@@ -29,7 +29,7 @@ const Features = () => {
             <div className={`${selected === 0 ? 'bg-primary text-primary-foreground' : ''} duration-200 shrink-0 size-8 rounded-full border border-input flex items-center justify-center`}>
               <UserIcon className="size-4" />
             </div>
-            <div className="flex flex-col items-start gap-3">
+            <div className="flex flex-col items-start text-left gap-3">
               <h3 className="text-lg font-bold">Add your feature here</h3>
               <p className="leading-relaxed">
                 This is a description of the feature.
@@ -42,7 +42,7 @@ const Features = () => {
           <div className={`${selected === 1 ? 'bg-primary text-primary-foreground' : ''} duration-200 shrink-0 size-8 rounded-full border border-input flex items-center justify-center`}>
               <BoltIcon className="size-4" />
             </div>
-            <div className="flex flex-col items-start gap-3">
+            <div className="flex flex-col items-start text-left gap-3">
               <h3 className="text-lg font-bold">Add your feature here</h3>
               <p className="leading-relaxed">
                 This is a description of the feature.
@@ -55,7 +55,7 @@ const Features = () => {
           <div className={`${selected === 2 ? 'bg-primary text-primary-foreground' : ''} duration-200 shrink-0 size-8 rounded-full border border-input flex items-center justify-center`}>
               <StarIcon className="size-4" />
             </div>
-            <div className="flex flex-col items-start gap-3">
+            <div className="flex flex-col items-start text-left gap-3">
               <h3 className="text-lg font-bold">Add your feature here</h3>
               <p className="leading-relaxed">
                 This is a description of the feature.

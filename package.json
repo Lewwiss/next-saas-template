@@ -7,7 +7,8 @@
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier": "prettier --write ."
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.7.4",
@@ -35,6 +36,7 @@
     "next-themes": "^0.4.4",
     "nodemailer": "^6.9.16",
     "playwright": "^1.50.1",
+    "prettier": "^3.5.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "sonner": "^1.7.1",

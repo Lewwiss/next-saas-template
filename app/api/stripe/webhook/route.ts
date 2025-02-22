@@ -34,9 +34,7 @@ export async function POST(req: NextRequest) {
     switch (eventType) {
       case "checkout.session.completed": {
         const stripeObject: Stripe.Checkout.Session = event.data.object as Stripe.Checkout.Session;
-
         const session = await findCheckoutSession(stripeObject.id);
-
         const customerId = session?.customer;
         const priceId = session?.line_items?.data[0]?.price?.id;
         const userId = stripeObject.client_reference_id;
@@ -68,9 +66,8 @@ export async function POST(req: NextRequest) {
           throw new Error("Stripe no user found");
         }
 
-        user.priceId = priceId;
+        user.priceIds.push(priceId as string);
         user.customerId = customerId;
-        user.pro = true;
         await user.save();
         break;
       }
@@ -78,44 +75,45 @@ export async function POST(req: NextRequest) {
       case "checkout.session.expired": {
         break;
       }
+
       case "customer.subscription.updated": {
         break;
       }
+
       case "customer.subscription.deleted": {
         const stripeObject: Stripe.Subscription = event.data.object as Stripe.Subscription;
-
         const subscription = await stripe.subscriptions.retrieve(
           stripeObject.id
         );
-
         const user = await User.findOne({ customerId: subscription.customer });
-
-        user.pro = false;
+        user.priceIds = user.priceIds.filter(
+          (priceId: string) => priceId !== subscription.items.data[0].price.id
+        );
         await user.save();
-
         break;
       }
 
       case "invoice.paid": {
         const stripeObject: Stripe.Invoice = event.data.object as Stripe.Invoice;
-
         const priceId = stripeObject.lines.data[0].price?.id;
         const customerId = stripeObject.customer;
-
         const user = await User.findOne({ customerId: customerId?.toString() });
 
         if (user.priceId !== priceId) break;
 
-        user.pro = true;
+        user.priceIds.push(priceId as string);
+
         await user.save();
         break;
       }
 
-      case "invoice.payment_failed":
+      case "invoice.payment_failed": {
         break;
+      }
 
-      default:
+      default: {
         break;
+      }
     }
   } catch (e) {
     console.error("Stripe webhook error: ", e);

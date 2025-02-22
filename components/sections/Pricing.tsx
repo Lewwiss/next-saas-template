@@ -18,12 +18,13 @@ const Pricing = () => {
           Find the most suitable plan for you.
         </p>
         <div className="mx-auto max-w-3xl w-full grid grid-cols-1 lg:grid-cols-2 gap-10 pt-6">
+
           {/* Plan 1 */}
           <div className="border border-input p-6 rounded-xl flex flex-col gap-5">
             <h3 className="text-sm font-semibold leading-none">Plan 1</h3>
             <p className="text-4xl font-bold">$10.00</p>
             <span className="text-sm font-medium">This is a description</span>
-            <ul className="w-full flex flex-col gap-2">
+            <ul className="w-full flex flex-col gap-3">
               {plan1Features.map((feature, index) => (
                 <li
                   key={index}
@@ -36,12 +37,13 @@ const Pricing = () => {
             </ul>
             <ButtonCheckout className="w-full" period="monthly" />
           </div>
+          
           {/* Plan 2 */}
           <div className="border border-input p-6 rounded-xl flex flex-col gap-5">
             <h3 className="text-sm font-semibold leading-none">Plan 2</h3>
             <p className="text-4xl font-bold">$20.00</p>
             <span className="text-sm font-medium">This is a description</span>
-            <ul className="w-full flex flex-col gap-2">
+            <ul className="w-full flex flex-col gap-3">
               {plan2Features.map((feature, index) => (
                 <li
                   key={index}
@@ -54,6 +56,7 @@ const Pricing = () => {
             </ul>
             <ButtonCheckout className="w-full" period="monthly" />
           </div>
+          
         </div>
       </div>
     </section>

@@ -27,6 +27,10 @@ const userSchema = new mongoose.Schema(
         return value.every((val) => val.includes("price_"));
       },
     },
+    tokens: {
+      type: Number,
+      default: 0,
+    }
   },
   {
     timestamps: true,

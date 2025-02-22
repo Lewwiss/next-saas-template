@@ -21,12 +21,13 @@ export async function POST(req: NextRequest) {
       if (!user?.customerId) {
         return NextResponse.json(
           {
-            error:
-              "You don't have a billing account yet. Make a purchase first.",
+            error: "You don't have a billing account yet",
           },
           { status: 400 }
         );
-      } else if (!body.returnUrl) {
+      }
+
+      if (!body.returnUrl) {
         return NextResponse.json(
           { error: "Return URL is required" },
           { status: 400 }
