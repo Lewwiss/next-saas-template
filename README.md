@@ -23,7 +23,7 @@ cd saas-template
 ### Install dependencies
 
 ```
-npm install  # or yarn install
+npm install # or yarn install
 ```
 
 ### Configuration
@@ -58,7 +58,7 @@ NEXT_PUBLIC_STRIPE_TOKENS_PRICE_ID=
 Start the development server:
 
 ```
-npm run dev  # or yarn dev
+npm run dev # or yarn dev
 ```
 
 ### Deployment
