@@ -9,7 +9,7 @@ const Hero = () => {
     <section className="py-24 px-10">
       <div className="w-full mx-auto max-w-6xl flex flex-col items-center justify-center text-center gap-6">
         <Logo className="size-10" />
-        <h1 className="text-5xl leading-tight lg:text-6xl lg:leading-tight font-bold mx-auto max-w-xl">
+        <h1 className="text-5xl leading-tight sm:text-6xl sm:leading-tight lg:text-7xl lg:leading-tight font-bold mx-auto max-w-3xl">
           This is the simplest SAAS template.
         </h1>
         <p className="text-lg leading-relaxed max-w-md">
