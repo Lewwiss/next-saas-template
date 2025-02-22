@@ -16,7 +16,6 @@ export async function POST(req: NextRequest) {
   await connectMongo();
 
   const body = await req.text();
-
   const signature = (await headers()).get("stripe-signature") || "";
 
   let eventType;
@@ -39,38 +38,48 @@ export async function POST(req: NextRequest) {
         const customerId = session?.customer;
         const priceId = session?.line_items?.data[0]?.price?.id;
         const userId = stripeObject.client_reference_id;
-        const plan =
-          priceId === process.env.NEXT_PUBLIC_STRIPE_MONTHLY_PRICE_ID ||
-          priceId === process.env.NEXT_PUBLIC_STRIPE_YEARLY_PRICE_ID;
 
-        if (!plan) break;
+        if (
+          priceId !== process.env.NEXT_PUBLIC_STRIPE_MONTHLY_PRICE_ID &&
+          priceId !== process.env.NEXT_PUBLIC_STRIPE_YEARLY_PRICE_ID &&
+          priceId !== process.env.NEXT_PUBLIC_STRIPE_ONE_TIME_PRICE_ID &&
+          priceId !== process.env.NEXT_PUBLIC_STRIPE_TOKENS_PRICE_ID
+        ) {
+          break;
+        }
 
         const customer = (await stripe.customers.retrieve(
           customerId as string,
         )) as Stripe.Customer;
 
-        let user;
+        let user = userId
+          ? await User.findById(userId)
+          : await User.findOne({ email: customer.email });
 
-        if (userId) {
-          user = await User.findById(userId);
-        } else if (customer.email) {
-          user = await User.findOne({ email: customer.email });
+        if (!user && customer.email) {
+          user = await User.create({
+            email: customer.email,
+            name: customer.name,
+          });
+        }
 
-          if (!user) {
-            user = await User.create({
-              email: customer.email,
-              name: customer.name,
-            });
-
-            await user.save();
-          }
-        } else {
+        if (!user) {
           console.error("Stripe no user found");
           throw new Error("Stripe no user found");
         }
 
-        user.priceIds.push(priceId as string);
-        user.customerId = customerId;
+        if (
+          priceId === process.env.NEXT_PUBLIC_STRIPE_MONTHLY_PRICE_ID ||
+          priceId === process.env.NEXT_PUBLIC_STRIPE_YEARLY_PRICE_ID ||
+          priceId === process.env.NEXT_PUBLIC_STRIPE_ONE_TIME_PRICE_ID
+        ) {
+          user.priceIds.push(priceId);
+        }
+
+        if (priceId === process.env.NEXT_PUBLIC_STRIPE_TOKENS_PRICE_ID) {
+          user.tokens += 10;
+        }
+
         await user.save();
         break;
       }
@@ -98,15 +107,53 @@ export async function POST(req: NextRequest) {
       }
 
       case "invoice.paid": {
-        const stripeObject: Stripe.Invoice = event.data
-          .object as Stripe.Invoice;
-        const priceId = stripeObject.lines.data[0].price?.id;
-        const customerId = stripeObject.customer;
-        const user = await User.findOne({ customerId: customerId?.toString() });
+        const stripeObject: Stripe.Checkout.Session = event.data
+          .object as Stripe.Checkout.Session;
+        const session = await findCheckoutSession(stripeObject.id);
+        const customerId = session?.customer;
+        const priceId = session?.line_items?.data[0]?.price?.id;
+        const userId = stripeObject.client_reference_id;
 
-        if (user.priceId !== priceId) break;
+        if (
+          priceId !== process.env.NEXT_PUBLIC_STRIPE_MONTHLY_PRICE_ID &&
+          priceId !== process.env.NEXT_PUBLIC_STRIPE_YEARLY_PRICE_ID &&
+          priceId !== process.env.NEXT_PUBLIC_STRIPE_ONE_TIME_PRICE_ID &&
+          priceId !== process.env.NEXT_PUBLIC_STRIPE_TOKENS_PRICE_ID
+        ) {
+          break;
+        }
 
-        user.priceIds.push(priceId as string);
+        const customer = (await stripe.customers.retrieve(
+          customerId as string,
+        )) as Stripe.Customer;
+
+        let user = userId
+          ? await User.findById(userId)
+          : await User.findOne({ email: customer.email });
+
+        if (!user && customer.email) {
+          user = await User.create({
+            email: customer.email,
+            name: customer.name,
+          });
+        }
+
+        if (!user) {
+          console.error("Stripe no user found");
+          throw new Error("Stripe no user found");
+        }
+
+        if (
+          priceId === process.env.NEXT_PUBLIC_STRIPE_MONTHLY_PRICE_ID ||
+          priceId === process.env.NEXT_PUBLIC_STRIPE_YEARLY_PRICE_ID ||
+          priceId === process.env.NEXT_PUBLIC_STRIPE_ONE_TIME_PRICE_ID
+        ) {
+          user.priceIds.push(priceId);
+        }
+
+        if (priceId === process.env.NEXT_PUBLIC_STRIPE_TOKENS_PRICE_ID) {
+          user.tokens += 10;
+        }
 
         await user.save();
         break;
