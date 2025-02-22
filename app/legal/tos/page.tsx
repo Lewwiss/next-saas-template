@@ -2,30 +2,26 @@ import Footer from "@/components/sections/Footer";
 import Navigation from "@/components/sections/Navigation";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Webhook Forms - Terms Of Service",
-  description:
-    "The quickest way to collect your user feedback, sending responses to your favourite apps.",
-};
+export const metadata: Metadata = {};
 
 const Page = () => {
   return (
-    <div className="bg-white dark:bg-slate-950">
+    <div>
       <Navigation />
-      <div className="pt-40 sm:pt-44 pb-20 px-6">
-        <div className="mx-auto max-w-7xl w-full flex flex-col gap-10 items-center">
-          <h1 className="text-center text-slate-800 dark:text-white text-4xl leading-tight sm:text-5xl sm:leading-tight lg:text-6xl lg:leading-tight font-bold max-w-2xl">
+      <div className="py-20 px-10">
+        <div className="mx-auto max-w-6xl w-full flex flex-col gap-10 items-center">
+          <h1 className="text-center text-4xl leading-tight sm:text-5xl sm:leading-tight font-bold max-w-2xl">
             Terms of service
           </h1>
-          <p className="text-lg text-slate-500 dark:text-slate-300 leading-[1.8rem] max-w-sm flex flex-row gap-2 items-center">
+          <p className="max-w-sm flex flex-row gap-2 items-center">
             Last Updated: December 10, 2024
           </p>
           <p
-            className="pt-3 text-lg leading-relaxed whitespace-pre-wrap text-slate-500 dark:text-slate-300"
+            className="text-foreground/50 leading-relaxed whitespace-pre-wrap"
           >
-            {`Welcome to Webhook Forms! By accessing or using our website and services, you agree to be bound by the following terms and conditions. Please read them carefully.
+            {`Welcome to [NAME]. By accessing or using our website and services, you agree to be bound by the following terms and conditions. Please read them carefully.
 
-1. Services Provided - Webhook Forms provides a JavaScript form builder to assist entrepreneurs in collecting feedback for their products. Our services include access to downloadable code packages upon purchase.
+1. Services Provided - [NAME] provides a JavaScript form builder to assist entrepreneurs in collecting feedback for their products. Our services include access to downloadable code packages upon purchase.
 
 2. Ownership of Code - Upon purchasing a package, users receive ownership of the downloaded code for personal or business use. However, users are strictly prohibited from reselling, redistributing, or sublicensing the code in any form.
 
@@ -37,11 +33,11 @@ Personal Data - Name, email address, payment information, and webhooks.
 
 Non Personal Data - Cookies and other anonymous usage data for website functionality and analytics. For detailed information on how we handle your data, please refer to our Privacy Policy.
 
-5. User Responsibilities - By using our services, you agree to use the code and services responsibly and in compliance with applicable laws. Protect any downloaded code from unauthorized access or misuse. Not engage in any activities that could harm the reputation or functionality of Webhook Forms.
+5. User Responsibilities - By using our services, you agree to use the code and services responsibly and in compliance with applicable laws. Protect any downloaded code from unauthorized access or misuse. Not engage in any activities that could harm the reputation or functionality of [NAME].
 
 6. Governing Law - These terms are governed by the laws of the United Kingdom, and any disputes arising from these terms shall be resolved under UK jurisdiction.
 
-7. Limitation of Liability - Webhook Forms is not liable for any direct, indirect, incidental, or consequential damages arising from your use of our services, including but not limited to data loss or unauthorized access.
+7. Limitation of Liability - [NAME] is not liable for any direct, indirect, incidental, or consequential damages arising from your use of our services, including but not limited to data loss or unauthorized access.
 
 8. Updates to Terms - We reserve the right to update these Terms & Services at any time. In the event of significant changes, we will notify users via email. It is your responsibility to review these terms regularly to stay informed of any updates.
 
@@ -49,7 +45,7 @@ Non Personal Data - Cookies and other anonymous usage data for website functiona
 
 10. Contact Information - For questions, support, or disputes, please contact us at lewis@webhookforms.com
 
-Thank you for choosing Webhook Forms. We’re excited to help you gather valuable feedback and grow your business!`}
+Thank you for choosing [NAME]. We’re excited to help you gather valuable feedback and grow your business!`}
           </p>
         </div>
       </div>

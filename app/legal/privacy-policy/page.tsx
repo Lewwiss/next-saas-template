@@ -1,35 +1,25 @@
 import Footer from "@/components/sections/Footer";
 import Navigation from "@/components/sections/Navigation";
 import type { Metadata } from "next";
-import { DocumentIcon } from "@heroicons/react/20/solid";
-import { CalendarClockIcon } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Webhook Forms - Privacy Policy",
-  description:
-    "The quickest way to collect your user feedback, sending responses to your favourite apps.",
-};
+export const metadata: Metadata = {};
 
 const Page = () => {
   return (
     <div className="bg-white dark:bg-slate-950">
       <Navigation />
-      <div className="pt-40 sm:pt-44 pb-20 px-6">
-        <div className="mx-auto max-w-7xl w-full flex flex-col gap-10 items-center">
-          <p className="hidden border-input border py-0.5 px-2 text-[0.8rem] rounded-full leading-relaxed font-semibold max-w-sm flex flex-row items-center justify-center gap-1.5 text-center">
-            <DocumentIcon className="size-3" />
-            <span>Legal</span>
-          </p>
-          <h1 className="text-slate-800 dark:text-white text-center text-4xl leading-tight sm:text-5xl sm:leading-tight lg:text-6xl lg:leading-tight font-bold max-w-2xl">
+      <div className="py-20 px-10">
+        <div className="mx-auto max-w-6xl w-full flex flex-col gap-10 items-center">
+          <h1 className="text-center text-4xl leading-tight sm:text-5xl sm:leading-tight font-bold max-w-2xl">
             Privacy policy
           </h1>
-          <p className="text-lg text-slate-500 dark:text-slate-300 leading-[1.8rem] max-w-sm flex flex-row gap-2 items-center">
+          <p className="max-w-sm flex flex-row gap-2 items-center">
             Last Updated: December 10, 2024
           </p>
           <p
-            className="pt-3 text-lg leading-relaxed whitespace-pre-wrap text-slate-500 dark:text-slate-300"
+            className="text-foreground/50 leading-relaxed whitespace-pre-wrap"
           >
-            {`Welcome to Webhook Forms! Your privacy is important to us. This Privacy Policy explains the types of information we collect, how it is used, and your rights regarding your data when you use our website and services.
+            {`Welcome to [NAME]. Your privacy is important to us. This Privacy Policy explains the types of information we collect, how it is used, and your rights regarding your data when you use our website and services.
 
 1. Personal Data - (Information We Collect) We collect the following personal information when you use our services name, email, payment information and webhooks. This data is essential for providing our services and processing your orders.
 
@@ -39,7 +29,7 @@ Non Personal Data - We also collect non-personal information through cookies to 
 
 3. Data Sharing - Your privacy is our priority. We do not share, sell, or disclose your personal data to any third parties, except as required by law.
 
-4. Children's Privacy - Webhook Forms does not knowingly collect data from children under the age of 13. If we become aware that we have inadvertently collected information from a child, we will take immediate steps to delete it.
+4. Children's Privacy - [NAME] does not knowingly collect data from children under the age of 13. If we become aware that we have inadvertently collected information from a child, we will take immediate steps to delete it.
 
 5. Use of Cookies - We use cookies to enhance your browsing experience. Analyze website usage to improve our services. You can manage your cookie preferences through your browser settings.
 
@@ -51,7 +41,7 @@ Non Personal Data - We also collect non-personal information through cookies to 
 
 9. Contact Us - If you have any questions, concerns, or requests related to this Privacy Policy, please contact us at lewis@webhookforms.com
 
-Thank you for trusting Webhook Forms. We are committed to protecting your privacy and ensuring your data is handled responsibly.`}
+Thank you for trusting [NAME]. We are committed to protecting your privacy and ensuring your data is handled responsibly.`}
           </p>
         </div>
       </div>

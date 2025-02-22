@@ -5,10 +5,7 @@ import Pricing from "@/components/sections/Pricing";
 import type { Metadata } from 'next'
 import FAQ from "@/components/sections/FAQ";
 
-export const metadata: Metadata = {
-  title: 'Webhook Forms - Pricing',
-  description: 'The quickest way to collect your user feedback, sending responses to your favourite apps.',
-};
+export const metadata: Metadata = {};
 
 const Page = () => {
   return (<div>

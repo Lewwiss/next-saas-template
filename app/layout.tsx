@@ -7,7 +7,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="min-h-screen">
+    <html lang="en">
       <head />
       <body>
         <ClientLayout>

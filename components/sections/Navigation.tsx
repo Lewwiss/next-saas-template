@@ -1,71 +1,50 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
 import Logo from "../ui/logo";
 import Menu from "./Menu";
 
-const navigation = () => {
-  const [top, setTop] = useState(true);
-  const [scrolledUp, setScrolledUp] = useState(false);
-  const scrollYRef = useRef(0);
+const links = [
+  { href: "/components", text: "Components" },
+  { href: "/docs", text: "Docs" },
+  { href: "/pricing", text: "Pricing" },
+];
 
-  const handleScroll = () => {
-    const currentScrollY = window.scrollY;
-    setScrolledUp(currentScrollY < scrollYRef.current);
-    setTop(currentScrollY === 0);
-    scrollYRef.current = currentScrollY;
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+const Navigation = () => {
   return (
-    <div
-      className={`z-10 fixed top-0 left-0 p-4 w-full duration-200 border-b ${
-        !scrolledUp && !top ? "" : ""
-      } ${
-        top
-          ? "bg-transparent border-transparent"
-          : "bg-background/90 border-input"
-      }`}
-    >
+    <div className="px-10">
       <nav
-        className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-3"
+        className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-3 py-6"
       >
-        <div className="col-span-2 flex flex-row items-center gap-6">
+        <div className="col-span-1 flex flex-row items-center gap-6">
           <Link href="/" className="flex flex-row items-center gap-2">
-            <Logo className="size-5" />
-            <h2 className="text-lg font-bold leading-relaxed">template</h2>
+            <Logo className="size-4" />
+            <h2 className="text-lg font-bold leading-relaxed">Template</h2>
           </Link>
-          <div className="ml-auto flex flex-row items-center gap-3 lg:hidden">
+          <div className="ml-auto flex flex-row items-center gap-3 md:hidden">
             <Menu />
           </div>
-          <ul className="hidden lg:flex flex-row gap-6 items-center text-sm">
-            {
-              ["Components", "Docs"].map((item, index) => (
-                <li key={index}>
-                  <Link href={item} className="transition-colors hover:text-foreground/80 text-foreground/80">
-                    {item}
-                  </Link>
-                </li>
-              ))
-            }
-          </ul>
         </div>
-        <div className="hidden lg:flex flex-row items-center justify-end gap-3">
+        <ul className="col-span-2 hidden md:flex flex-row gap-6 items-center justify-end">
+          {
+            links.map((item, index) => (
+              <li key={index}>
+                <Link href={item.href} className="text-sm transition-colors hover:text-foreground/80 text-foreground">
+                  {item.text}
+                </Link>
+              </li>
+            ))
+          }
           <Link href="/auth/signin">
             <Button>
               Get Started Now
             </Button>
           </Link>
-        </div>
+        </ul>
       </nav>
     </div>
   );
 };
 
-export default navigation;
+export default Navigation;

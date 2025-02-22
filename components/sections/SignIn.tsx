@@ -26,11 +26,11 @@ const SignIn = () => {
   };
 
   return (
-    <div className="pt-40 sm:pt-52 pb-20 sm:pb-32 px-10 flex flex-col gap-5">
-      <h1 className="text-slate-800 dark:text-white text-3xl leading-[2.6rem] sm:text-4xl sm:leading-tight lg:text-5xl lg:leading-tight font-bold text-center">
+    <div className="py-40 px-10 flex flex-col gap-6">
+      <h1 className="text-3xl leading-tight sm:text-4xl sm:leading-tight font-bold text-center">
           Sign in
       </h1>
-      <div className="w-full mx-auto max-w-md grid gap-5">
+      <div className="w-full mx-auto max-w-sm grid gap-6">
         <div className="flex flex-col gap-3">
           <Label htmlFor="email">Email</Label>
           <Input id="email" type="email" placeholder="m@example.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -39,19 +39,16 @@ const SignIn = () => {
           Continue With Email
         </Button>
         <div className="flex flex-row gap-4 items-center py-1">
-          <hr className="w-full border-slate-200 dark:border-slate-800" />
-          <span className="text-slate-500 dark:text-slate-300">or</span>
-          <hr className="w-full border-slate-200 dark:border-slate-800" />
+          <hr className="w-full border-input" />
+          <span className="text-foreground/80">or</span>
+          <hr className="w-full border-input" />
         </div>
-        <div className="flex flex-col gap-[18px]">
+        <div className="flex flex-col gap-4">
           <ButtonSignInGoogle className="w-full" />
           <ButtonSignInDiscord className="w-full" />
         </div>
-        <span className="text-slate-500 dark:text-slate-300 text-center text-sm">
-          Need help? Join our{' '}
-          <a href="https://discord.gg/FZTVYjMTWq" target="_blank" className="hover:underline underline-offset-4">
-            support server
-          </a>
+        <span className="text-foreground text-center text-sm">
+          Need help? Join our support server
         </span>
       </div>
     </div>

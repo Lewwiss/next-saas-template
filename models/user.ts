@@ -21,15 +21,11 @@ const userSchema = new mongoose.Schema(
         return value.includes("cus_");
       },
     },
-    priceId: {
-      type: String,
-      validate(value: string) {
-        return value.includes("price_");
+    priceIds: {
+      type: [String],
+      validate(value: string[]) {
+        return value.every((val) => val.includes("price_"));
       },
-    },
-    pro: {
-      type: Boolean,
-      default: false,
     },
   },
   {

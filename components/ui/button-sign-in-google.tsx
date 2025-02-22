@@ -16,7 +16,6 @@ const ButtonSignInGoogle = (props: ButtonProps) => {
   return (
     <Button
       {...props}
-      variant="outline"
       onClick={() => handleClick()}
       loading={loading}
     >

@@ -1,80 +1,70 @@
+"use client";
+
 import {
-  ArrowRightIcon,
-  ChatBubbleLeftEllipsisIcon,
-  CodeBracketSquareIcon,
+  BoltIcon,
+  StarIcon,
+  UserIcon,
 } from "@heroicons/react/20/solid";
-import { Button } from "../ui/button";
-import Link from "next/link";
-import { FilterIcon } from "lucide-react";
-import Discord from "../icons/Discord";
+import { useState } from "react";
 
 const Features = () => {
+  const [selected, setSelected] = useState(0);
+
   return (
-    <section className="pt-28 pb-20 px-10 bg-white dark:bg-slate-950 flex flex-col gap-12" id="features">
-
-      <div className="mx-auto max-w-7xl w-full flex flex-col items-center gap-6">
-        <h1 className="text-slate-800 dark:text-white text-3xl leading-[2.6rem] sm:text-4xl sm:leading-tight lg:text-5xl lg:leading-tight font-bold max-w-4xl mx-auto text-center">
-          A few of our features
-        </h1>
-        <p className="text-lg font-medium text-slate-500 dark:text-slate-300 leading-relaxed mx-auto max-w-lg text-center">
-          Get started quicker with our easy to follow <Link href="/guides" className="hover:underline underline-offset-4">guides</Link>.
+    <section className="py-20 px-10 flex flex-col gap-10" id="features">
+      <div className="mx-auto max-w-6xl w-full flex flex-col items-center gap-6">
+        <h2 className="text-3xl leading-tight sm:text-4xl sm:leading-tight lg:text-5xl lg:leading-tight font-bold max-w-4xl mx-auto text-center">
+          Show off your features
+        </h2>
+        <p className="text-lg leading-relaxed mx-auto max-w-lg text-center">
+          Display the features of your product or service.
         </p>
+      </div>
+
+      <div className="w-full mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-5 items-center gap-10">
+
+        <div className="col-span-2 w-full flex flex-col gap-5">
+          {/* Feature 1 */}
+          <button onClick={() => setSelected(0)} className={`${selected === 0 ? 'bg-input/50' : ''} duration-200 border border-input flex flex-row gap-4 p-6 rounded-xl`}>
+            <div className={`${selected === 0 ? 'bg-primary text-primary-foreground' : ''} duration-200 shrink-0 size-8 rounded-full border border-input flex items-center justify-center`}>
+              <UserIcon className="size-4" />
+            </div>
+            <div className="flex flex-col items-start gap-3">
+              <h3 className="text-lg font-bold">Add your feature here</h3>
+              <p className="leading-relaxed">
+                This is a description of the feature.
+              </p>
+            </div>
+          </button>
+
+          {/* Feature 2 */}
+          <button onClick={() => setSelected(1)} className={`${selected === 1 ? 'bg-input/50' : ''} duration-200 border border-input flex flex-row gap-4 p-6 rounded-xl`}>
+          <div className={`${selected === 1 ? 'bg-primary text-primary-foreground' : ''} duration-200 shrink-0 size-8 rounded-full border border-input flex items-center justify-center`}>
+              <BoltIcon className="size-4" />
+            </div>
+            <div className="flex flex-col items-start gap-3">
+              <h3 className="text-lg font-bold">Add your feature here</h3>
+              <p className="leading-relaxed">
+                This is a description of the feature.
+              </p>
+            </div>
+          </button>
+
+          {/* Feature 3 */}
+          <button onClick={() => setSelected(2)} className={`${selected === 2 ? 'bg-input/50' : ''} duration-200 border border-input flex flex-row gap-4 p-6 rounded-xl`}>
+          <div className={`${selected === 2 ? 'bg-primary text-primary-foreground' : ''} duration-200 shrink-0 size-8 rounded-full border border-input flex items-center justify-center`}>
+              <StarIcon className="size-4" />
+            </div>
+            <div className="flex flex-col items-start gap-3">
+              <h3 className="text-lg font-bold">Add your feature here</h3>
+              <p className="leading-relaxed">
+                This is a description of the feature.
+              </p>
+            </div>
+          </button>
         </div>
 
-      <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-3 gap-10 w-full">
-        <div className="bg-gradient-to-t from-transparent to-slate-100 dark:to-slate-900 p-8 rounded-3xl flex flex-col items-start gap-3">
-          <div className="size-11 bg-neutral-600 rounded-xl flex items-center justify-center">
-            <CodeBracketSquareIcon className="size-6 text-white" />
-          </div>
-          <h3 className="pt-3 text-xl font-bold text-slate-800 dark:text-white">
-            Widget Embed
-          </h3>
-          <p className="text-lg font-medium text-slate-500 dark:text-slate-300 leading-relaxed max-w-sm flex flex-grow">
-            Add your form to any website with a simple script, no extra work
-            needed.
-          </p>
-          <Link href="/auth/signin" className="pt-3">
-            <Button>
-              Try It Out Now
-              <ArrowRightIcon className="size-4" />
-            </Button>
-          </Link>
-        </div>
-        <div className="bg-gradient-to-t from-transparent to-slate-100 dark:to-slate-900 p-8 rounded-3xl flex flex-col items-start gap-3">
-          <div className="size-11 bg-neutral-600 rounded-xl flex items-center justify-center">
-            <FilterIcon className="size-6 text-white fill-white" />
-          </div>
-          <h3 className="pt-3 text-xl font-bold text-slate-800 dark:text-white">
-            Filtering
-          </h3>
-          <p className="text-lg font-medium text-slate-500 dark:text-slate-300 leading-relaxed max-w-sm flex flex-grow">
-            Filter submissions by their content, only receive the ones
-            you&apos;d like to keep.
-          </p>
-          <Link href="/auth/signin" className="pt-3">
-            <Button>
-              Try It Out Now
-              <ArrowRightIcon className="size-4" />
-            </Button>
-          </Link>
-        </div>
-        <div className="bg-gradient-to-t from-transparent to-slate-100 dark:to-slate-900 p-8 rounded-3xl flex flex-col items-start gap-3">
-          <div className="size-11 bg-[#5865F2] rounded-xl flex items-center justify-center">
-            <Discord className="size-7 text-inherit text-white" />
-          </div>
-          <h3 className="pt-3 text-xl font-bold text-slate-800 dark:text-white">
-            Active Support
-          </h3>
-          <p className="text-lg font-medium text-slate-500 dark:text-slate-300 leading-relaxed max-w-sm flex flex-grow">
-            What ever the issue may be, we’re here to help you resolve it.
-          </p>
-          <a href="https://discord.gg/FZTVYjMTWq" target="_blank" className="pt-3">
-            <Button className="bg-[#5865F2] hover:bg-[#6974f3] text-white">
-                Join Our Discord
-                <ArrowRightIcon className="size-4" />
-            </Button>
-          </a>
-        </div>
+        <div className="hidden lg:block col-span-3 mx-auto max-w-xl w-full bg-input/50 rounded-xl aspect-video" />
       </div>
     </section>
   );

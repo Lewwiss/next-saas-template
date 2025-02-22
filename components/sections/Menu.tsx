@@ -4,31 +4,26 @@ import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import {
-  Bars3Icon,
-  HomeIcon,
-  RocketLaunchIcon,
-  TagIcon,
-} from "@heroicons/react/20/solid";
-import { useSession } from "next-auth/react";
-import ButtonSignOut from "../ui/button-sign-out";
-import ButtonSignInGoogle from "../ui/button-sign-in-google";
+import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 import Logo from "../ui/logo";
 
-const Menu = () => {
-  const { status } = useSession();
+const links = [
+  { href: "/components", text: "Components" },
+  { href: "/docs", text: "Docs" },
+  { href: "/pricing", text: "Pricing" },
+];
 
+const Menu = () => {
   return (
-    <nav className="lg:hidden ml-auto">
+    <nav>
       <Sheet>
         <SheetTrigger asChild>
-          <Bars3Icon className="size-5" />
+          <MenuIcon className="size-4 opacity-70 hover:opacity-100 duration-200 cursor-pointer" />
         </SheetTrigger>
         <SheetContent>
           <SheetHeader>
@@ -37,22 +32,18 @@ const Menu = () => {
                 href="/"
                 className="flex flex-row items-center justify-center gap-2"
               >
-                <Logo className="size-5" />
-                <h2 className="text-lg font-bold leading-relaxed">template</h2>
+                <Logo className="size-4" />
+                <h2 className="text-lg font-bold leading-relaxed">Template</h2>
               </Link>
             </SheetTitle>
-            <SheetDescription className="hidden">
-              The quickest way to collect your user feedback, sending responses
-              to your favourite apps.
-            </SheetDescription>
-            <ul className="py-3 flex flex-col items-center gap-3">
-              {["Components", "Docs"].map((item, index) => (
+            <ul className="flex flex-col items-center gap-3 py-3">
+              {links.map((item, index) => (
                 <li key={index}>
                   <Link
-                    href={item}
-                    className="transition-colors hover:text-foreground/80 text-foreground/80"
+                    href={item.href}
+                    className="text-sm transition-colors hover:text-foreground/80 text-foreground"
                   >
-                    {item}
+                    {item.text}
                   </Link>
                 </li>
               ))}

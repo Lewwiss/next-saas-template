@@ -37,8 +37,7 @@ const ButtonCheckout = ({ className, period = "monthly" }: Props) => {
 
     return (
         <Button className={className} variant="default" onClick={() => handleClick()} disabled={loading} loading={loading}>
-            <RocketLaunchIcon className="size-5" />
-            Get Started
+            Get Started Now
         </Button>
     )
 }

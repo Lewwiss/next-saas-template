@@ -1,32 +1,19 @@
 "use client";
 
-import {
-  RocketLaunchIcon,
-} from "@heroicons/react/20/solid";
 import { Button } from "../ui/button";
-import ButtonSignInGoogle from "../ui/button-sign-in-google";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
-const Hero = () => {
-  const [word, setWord] = useState("website");
-  const words = ["website", "blog", "knowledgebase", "articles", "landing page", "sales funnel"];
-
-  const [index, setIndex] = useState(0);
-  const [typing, setTyping] = useState(true);
-  
+const Hero = () => {  
   return (
-    <section className="bg-white dark:bg-slate-950 relative pt-40 sm:pt-48 pb-28 px-10 overflow-hidden flex flex-col items-center justify-center">
-      <div className="relative w-full mx-auto max-w-7xl flex flex-col items-start justify-center gap-6">
-        <h1 className="text-slate-800 dark:text-white text-5xl leading-tight lg:text-6xl lg:leading-tight xl:text-7xl xl:leading-[5.5rem] font-semibold max-w-4xl">
-          Get ai to proofread <br className="hidden sm:block" /> your{" "}
-          {word}
+    <section className="py-24 px-10">
+      <div className="w-full mx-auto max-w-6xl flex flex-col items-center justify-center text-center gap-6">
+        <h1 className="text-5xl leading-tight lg:text-6xl lg:leading-tight font-bold mx-auto max-w-xl">
+          This is the simplest SAAS template.
         </h1>
-        <p className="font-medium text-lg text-slate-500 dark:text-slate-300 leading-relaxed max-w-md">
-          The quickest way to collect form responses, sending them straight to
-          your favourite apps.
+        <p className="text-lg leading-relaxed max-w-md">
+          Created with Next.js, ShadCN and Stripe.
         </p>
-        <div className="flex flex-row flex-wrap items-center justify-start gap-3 mt-3">
+        <div className="mt-3 flex flex-row flex-wrap items-center justify-center gap-3">
           <Link href="/auth/signin">
             <Button size="lg" className="text-base">
               Get Started For Free
