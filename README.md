@@ -1,4 +1,5 @@
 # NextJS SaaS Template
+
 > A minimal premade SaaS template
 
 ## Features
@@ -15,6 +16,7 @@ Minimal & Scalable structure
 Clone the repository and install dependencies:
 
 ### Clone the repo
+
 git clone https://github.com/lewwiss/next-saas-template.git
 cd saas-template
 

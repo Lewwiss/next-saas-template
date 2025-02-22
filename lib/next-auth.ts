@@ -42,7 +42,7 @@ export const authOptions: NextAuthOptionsExtended = {
                 pass: process.env.RESEND_API_KEY,
               },
             },
-            from: "mail@webhookforms.com",
+            from: "mail@template.com",
             sendVerificationRequest,
           }),
         ]

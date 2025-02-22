@@ -34,8 +34,8 @@ const html = (params: { url: string; host: string }) => {
   <table width="100%" border="0" cellspacing="20" cellpadding="0" style="max-width: 600px; margin: auto; border-radius: 10px;">
     <tr>
       <td align="center">
-        <a href="https://www.webhookforms.com/">
-          <img src="https://www.webhookforms.com/logo.png" style="width: 40px;" />
+        <a href="https://www.template.com/">
+          <img src="https://www.template.com/logo.png" style="width: 40px;" />
         </a>
       </td>
     </tr>
@@ -48,7 +48,7 @@ const html = (params: { url: string; host: string }) => {
       <td align="center">
         <table border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td align="center" style="border-radius: 14px;" bgcolor="#346df1"><a href="${url}" target="_blank" style="font-size: 16px; font-family: Geist, Arial, sans-serif; color: #FFFFFF; text-decoration: none; padding: 8px 18px; display: inline-block; font-weight: semibold;">Sign In Now</a></td>
+            <td align="center" style="border-radius: 14px;" bgcolor="#000"><a href="${url}" target="_blank" style="font-size: 16px; font-family: Geist, Arial, sans-serif; color: #FFFFFF; text-decoration: none; padding: 8px 18px; display: inline-block; font-weight: semibold;">Sign In Now</a></td>
           </tr>
         </table>
       </td>

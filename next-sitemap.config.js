@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: "https://webhookforms.com",
+  siteUrl: "https://template.com",
   generateRobotsTxt: true,
   robotsTxtOptions: {
     policies: [
