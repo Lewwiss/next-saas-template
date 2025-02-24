@@ -12,8 +12,8 @@ import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 import Logo from "../ui/logo";
 import ButtonSignOut from "../ui/button-sign-out";
-import ButtonAccount from "../ui/button-account";
 import ButtonDarkMode from "../ui/button-dark-mode";
+import { UserIcon } from "@heroicons/react/20/solid";
 
 const links = [
   { href: "/components", text: "Components" },
@@ -43,7 +43,12 @@ const Menu = ({ variant }: { variant?: "dashboard" }) => {
                 </Link>
               </SheetTitle>
               <div className="pt-3 flex flex-col gap-3">
-                <ButtonAccount />
+                <Link href="/dashboard/account">
+                  <Button variant="outline" className="w-full">
+                    <UserIcon className="size-4" />
+                    Account
+                  </Button>
+                </Link>
                 <ButtonSignOut />
                 <ButtonDarkMode className="w-full" />
               </div>

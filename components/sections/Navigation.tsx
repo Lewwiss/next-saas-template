@@ -5,8 +5,8 @@ import { Button } from "../ui/button";
 import Logo from "../ui/logo";
 import Menu from "./Menu";
 import ButtonSignOut from "../ui/button-sign-out";
-import ButtonAccount from "../ui/button-account";
 import ButtonDarkMode from "../ui/button-dark-mode";
+import { UserIcon } from "@heroicons/react/20/solid";
 
 const links = [
   { href: "/components", text: "Components" },
@@ -20,7 +20,10 @@ const Navigation = ({ variant }: { variant?: "dashboard" }) => {
       <div className="px-10">
         <nav className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-3 py-6">
           <div className="col-span-1 flex flex-row items-center gap-6">
-            <Link href="/" className="flex flex-row items-center gap-2">
+            <Link
+              href="/dashboard"
+              className="flex flex-row items-center gap-2"
+            >
               <Logo className="size-4" />
               <h2 className="text-lg font-bold leading-relaxed">Template</h2>
             </Link>
@@ -30,10 +33,15 @@ const Navigation = ({ variant }: { variant?: "dashboard" }) => {
           </div>
           <ul className="col-span-2 hidden md:flex flex-row gap-3 items-center justify-end">
             <li>
-              <ButtonDarkMode />
+              <Link href="/dashboard/account">
+                <Button variant="outline">
+                  <UserIcon className="size-4" />
+                  Account
+                </Button>
+              </Link>
             </li>
             <li>
-              <ButtonAccount />
+              <ButtonDarkMode />
             </li>
             <li>
               <ButtonSignOut />
