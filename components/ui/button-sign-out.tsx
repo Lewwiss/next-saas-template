@@ -10,7 +10,7 @@ const ButtonSignOut = (props: ButtonProps) => {
   };
 
   return (
-    <Button {...props} variant="destructive" onClick={() => handleClick()}>
+    <Button {...props} onClick={() => handleClick()}>
       Sign Out
       <ArrowRightStartOnRectangleIcon className="size-4" />
     </Button>
